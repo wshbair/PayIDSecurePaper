@@ -7,9 +7,9 @@ export let errorRate = new Rate("errors");
 const host='127.0.0.1'
 export let options = {
     stages: [
-        { duration: '2m', target: 400 }, // ramp up to 400 users
-        { duration: '30m', target: 400 }, // stay at 400 for ~4 hours
-        { duration: '2m', target: 0 }, // scale down. (optional)
+        { duration: '1m', target: 700 }, // ramp up to 700 users
+        { duration: '5m', target: 700 }, // stay at 700 for 5 minutes
+        { duration: '1m', target: 0 }, // scale down. (optional)
       ]
   };
 
