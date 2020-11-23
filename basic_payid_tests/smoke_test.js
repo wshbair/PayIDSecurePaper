@@ -5,10 +5,10 @@ import crypto from "k6/crypto";
 
 export let errorRate = new Rate("errors");
 const host='127.0.0.1'
-// export let options = {
-//     vus: 1, // 1 user looping for 1 minute
-//     duration: '1m',
-//   };
+export let options = {
+     vus: 1, // 1 user looping for 1 minute
+     duration: '1m',
+};
 
 export default function() {	 
     var url = "http://"+host+":8081/users";
