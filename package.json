@@ -1,0 +1,22 @@
+{
+  "name": "payidsecurepaper",
+  "version": "1.0.0",
+  "description": "PayID Secure Paper",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wshbair/PayIDSecurePaper.git"
+  },
+  "author": "Wazen Shbair",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wshbair/PayIDSecurePaper/issues"
+  },
+  "homepage": "https://github.com/wshbair/PayIDSecurePaper#readme",
+  "dependencies": {
+    "k6": "^0.0.0"
+  }
+}
