@@ -4,18 +4,18 @@ import { Rate } from "k6/metrics";
 import crypto from "k6/crypto";
 
 export let errorRate = new Rate("errors");
-const host='127.0.0.1'
+const host='petitprince-6.luxembourg.grid5000.fr'
 export let options = {
     stages: [
-        { duration: '20s', target: 100 }, // below normal load
-        { duration: '50s', target: 100 },
-        { duration: '60s', target: 200 }, // normal load
-        { duration: '50s', target: 200 },
-        { duration: '20s', target: 300 }, // around the breaking point
-        { duration: '50s', target: 300 },
-        { duration: '20s', target: 400 }, // beyond the breaking point
-        { duration: '50s', target: 400 },
-        { duration: '10s', target: 0 }, // scale down. Recovery stage.
+        { duration: '2m', target: 100 }, // below normal load
+        { duration: '5m', target: 100 },
+        { duration: '2m', target: 200 }, // normal load
+        { duration: '5m', target: 200 },
+        { duration: '2m', target: 300 }, // around the breaking point
+        { duration: '5m', target: 300 },
+        { duration: '2m', target: 400 }, // beyond the breaking point
+        { duration: '5m', target: 400 },
+        { duration: '10m', target: 0 }, // scale down. Recovery stage.
       ]
   };
 
