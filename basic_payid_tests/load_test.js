@@ -4,7 +4,7 @@ import { Rate } from "k6/metrics";
 import crypto from "k6/crypto";
 
 export let errorRate = new Rate("errors");
-const host='127.0.0.1'
+const host='petitprince-6.luxembourg.grid5000.fr'
 export let options = {
     stages: [
         { duration: '5m', target: 100 }, // simulate ramp-up of traffic from 1 to 100 users over 5 minutes
