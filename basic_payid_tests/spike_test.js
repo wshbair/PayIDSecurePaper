@@ -4,7 +4,7 @@ import { Rate } from "k6/metrics";
 import crypto from "k6/crypto";
 
 export let errorRate = new Rate("errors");
-const host='petitprince-9.luxembourg.grid5000.fr'
+const host='petitprince-13.luxembourg.grid5000.fr'
 export let options = {
     stages: [
         { duration: '10s', target: 100 }, // below normal load
