@@ -1,0 +1,7 @@
+Exp #1 Smoke Test
+________________________________________________________
+- 5 locations Luxembourg (PayID server), Nantes(workload source)
+- Run each test one time per location towards PayID server
+- Take the avg for the plot 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Nantes: 
