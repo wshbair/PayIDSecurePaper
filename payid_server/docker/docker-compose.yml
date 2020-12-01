@@ -1,0 +1,99 @@
+version: '3'
+
+services:
+    #Ledger 
+    # Agents
+    faber-agent:
+        command: ['faber --port 8020']
+        build:
+            context: ../aries-agents
+            dockerfile: ./docker/Dockerfile.demo
+        ports:
+            - 8020-8027:8020-8027
+        networks:
+            - von_von
+        environment:
+            - RUNMODE=${RUNMODE}
+            - DOCKERHOST=${DOCKERHOST}
+            - LEDGER_URL=${LEDGER_URL}
+            - GENESIS_URL=${GENESIS_URL}
+        tty: true
+    alice-agent:
+        command: ['alice --port 8030']
+        build:
+            context: ../aries-agents
+            dockerfile: ./docker/Dockerfile.demo
+        ports:
+            - 8030-8037:8030-8037
+        networks:
+            - von_von
+        environment:
+            - RUNMODE=${RUNMODE}
+            - DOCKERHOST=${DOCKERHOST}
+            - LEDGER_URL=${LEDGER_URL}
+            - GENESIS_URL=${GENESIS_URL}
+        tty: true
+    acme-agent:
+        command: ['acme --port 8040']
+        build:
+            context: ../aries-agents
+            dockerfile: ./docker/Dockerfile.demo
+        ports:
+            - 8040-8047:8040-8047
+        networks:
+            - von_von
+        environment:
+            - RUNMODE=${RUNMODE}
+            - DOCKERHOST=${DOCKERHOST}
+            - LEDGER_URL=${LEDGER_URL}
+            - GENESIS_URL=${GENESIS_URL}
+        tty: true
+
+    # Controllers
+    faber-controller:
+        build:
+            context: ../aries-controllers/controllers/faber-controller-nodejs/
+        ports:
+            - 3500:3500
+        networks:
+            - von_von
+        depends_on:
+            - faber-agent
+        environment:
+            - RUNMODE=${RUNMODE}
+            - FABER_AGENT_HOST=${FABER_AGENT_HOST}
+            - PAYID_SERVER=${PAYID_SERVER_HOST}
+    alice-controller:
+        build:
+            context: ../aries-controllers/controllers/alice-controller/
+            args:
+                - RUNMODE=${RUNMODE}
+                - ALICE_AGENT_HOST=${ALICE_AGENT_HOST}
+        ports:
+            - 3333:3333
+        networks:
+            - von_von
+        depends_on:
+            - alice-agent
+        environment:
+            - RUNMODE=${RUNMODE}
+            - ALICE_AGENT_HOST=${ALICE_AGENT_HOST}
+            - PAYID_SERVER=${PAYID_SERVER_HOST}
+            - ACME_CONTROLLER_HOST=${ACME_CONTROLLER_HOST}
+            - FABER_CONTROLLER_HOST=${FABER_CONTROLLER_HOST}
+    acme-controller:
+        build:
+            context: ../aries-controllers/controllers/acme-controller/
+        ports:
+            - 3000:3000
+        networks:
+            - von_von
+        depends_on:
+            - acme-agent
+        environment:
+            - RUNMODE=${RUNMODE}
+            - ACME_AGENT_HOST=${ACME_AGENT_HOST}
+            
+networks:
+    von_von:
+            external: true

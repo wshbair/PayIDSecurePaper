@@ -1,0 +1,1 @@
+{"version":3,"file":"handleHttpError.d.ts","sourceRoot":"","sources":["../../../../src/utils/errors/handleHttpError.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAA;AAIlC;;;;;;;;;GASG;AACH,MAAM,CAAC,OAAO,UAAU,eAAe,CACrC,SAAS,EAAE,MAAM,EACjB,GAAG,EAAE,MAAM,EACX,GAAG,EAAE,QAAQ,EACb,GAAG,CAAC,EAAE,KAAK,GACV,IAAI,CAiCN"}

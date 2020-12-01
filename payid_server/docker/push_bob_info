@@ -1,0 +1,40 @@
+PAYID_SERVER=$(docker inspect 'payid-server' | grep IPAddress | cut -d '"' -f 4 | xargs)  #get ip address
+
+#Create Bob payment information 
+curl --location --request POST 'http://127.0.0.1:8081/users' \
+--header 'Content-Type: application/json' \
+--header 'PayID-API-Version: 2020-06-18' \
+--data-raw '   {
+      "payId":"bob$'$PAYID_SERVER'",
+      "identityKey": "",
+      "addresses": [
+        {
+          "paymentNetwork": "BTC",
+          "environment": "TESTNET",
+          "details": {
+            "address": "mxNEbRXokcdJtT6sbukr1CTGVx8Tkxk3DB"
+          }
+        }
+      ],
+      "verifiedAddresses": [
+        {
+          "paymentNetwork": "XRPL",
+          "environment": "TESTNET",
+          "details": {
+            "address": "TVQWr6BhgBLW2jbFyqqufgq8T9eN7KresB684ZSHKQ3oDth"
+          },
+          "identityKeySignature":
+            "d2hhdCBhbSBJIGNvZGluZyB3aGF0IGlzIGxpZmUgcGxlYXNlIGhlbHA="
+        }
+      ]
+    }'
+
+#Authorize Alice to view Bob information
+curl --location --request POST 'http://127.0.0.1:8080/payId/authorize' \
+--header 'Content-Type: application/json' \
+--header 'PayID-API-Version: 2020-06-18' \
+--data-raw '{
+   "payId": "bob$'$PAYID_SERVER'",
+   "authorized_pay_id":"'$PAYID_SERVER'"
+}'
+ 

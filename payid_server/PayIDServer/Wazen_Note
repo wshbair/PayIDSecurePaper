@@ -1,0 +1,16 @@
+Commands
+1. Start the database 
+   npm run devDbUp   
+2. Start SecurePayID server
+    npm start
+
+Authontication token 
+
+https://simplycalc.com/base64url-encode.php
+
+
+
+The demo 
+
+SecurePayID Wallet 
+npm start 

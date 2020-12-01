@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo "Stopping Agents and Controllers..."
+cd ./docker/
+gnome-terminal -v -- bash -c './run_demo webdown; $SHELL'
+echo "Waiting for Agents and Controllers..."
+sleep 10
+echo "Waiting for Agents and Controllers..."
+sleep 10
+echo "Waiting for Agents and Controllers..."
+sleep 10
+echo "Waiting for Agents and Controllers..."
+sleep 10
+
+cd ..
+echo "Stopping PAY ID SERVER...."
+cd ./PayIDServer/
+gnome-terminal -v -- bash -c 'npm run devDown; $SHELL'
+echo "Waiting for PAY ID SERVER..."
+sleep 10
+echo "Waiting for PAY ID SERVER..."
+sleep 10
+echo "Waiting for PAY ID SERVER..."
+sleep 10
+
+cd ..
+echo "Stopping the Von Network"
+cd ./von-network/
+gnome-terminal -v -- bash -c './manage down; $SHELL'
+
+echo "Finished"
+

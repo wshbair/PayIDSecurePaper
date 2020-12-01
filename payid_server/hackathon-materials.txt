@@ -1,0 +1,11 @@
+1.Exploring Hyperledger Indy through indy-dev Example
+https://medium.com/@kctheservant/exploring-hyperledger-indy-through-indy-dev-example-10075d2547ae 
+
+2.VON Network - A portable development level Indy Node network
+https://github.com/bcgov/von-network 
+
+3.ARISE controllers (the demo)
+https://github.com/hyperledger/aries-acapy-controllers 
+
+4.Demonstration of Hyperledger Aries Cloud Agent
+https://medium.com/@kctheservant/demonstration-of-hyperledger-aries-cloud-agent-6e476a5426b0 

@@ -1,0 +1,1 @@
+{"version":3,"file":"checkPublicApiVersionHeaders.d.ts","sourceRoot":"","sources":["../../../src/middlewares/checkPublicApiVersionHeaders.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,QAAQ,EAAE,YAAY,EAAE,MAAM,SAAS,CAAA;AAMzD;;;;;;;;;;GAUG;AACH,MAAM,CAAC,OAAO,UAAU,4BAA4B,CAClD,GAAG,EAAE,OAAO,EACZ,GAAG,EAAE,QAAQ,EACb,IAAI,EAAE,YAAY,GACjB,IAAI,CAiEN"}
