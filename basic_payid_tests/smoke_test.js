@@ -4,11 +4,11 @@ import { Rate } from "k6/metrics";
 import crypto from "k6/crypto";
 
 export let errorRate = new Rate("errors");
-const host='127.0.0.1'
-// export let options = {
-//     vus: 1, // 1 user looping for 1 minute
-//     duration: '1m',
-//   };
+const host='petitprince-9.luxembourg.grid5000.fr'
+export let options = {
+     vus: 1, // 1 user looping for 1 second
+     duration: '30s',
+};
 
 export default function() {	 
     var url = "http://"+host+":8081/users";
