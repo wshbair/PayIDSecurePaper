@@ -1,31 +1,24 @@
 #!/bin/bash
 
-# echo "Starting the Von network"
-# cd ./von-network/
-# ./manage build && ./manage up
-# cd ..
+echo "Starting the Von network"
+cd ./von-network/
+./manage build && ./manage up
+cd ..
  
+echo "Starting PAY ID SERVER...."
+cd ./PayIDServer/
+npm install
+nohup npm run devEnvUp:default &>/dev/null &
 
-# echo "Starting PAY ID SERVER...."
-# cd ./PayIDServer/
-# npm install
-# nohup npm run devEnvUp:default &>/dev/null &
-#echo "Waiting for the PAY ID SERVER......."
-#sleep 10
-#echo "Waiting for the PAY ID SERVER......."
-#sleep 10
-#echo "Waiting for the von network..."
-#sleep 10
+cd ..
+echo "Pushing Bob's info......."
+cd ./docker/
+bash './push_bob_info'
+sleep 2
 
-# cd ..
-# echo "Pushing Bob's info......."
-# cd ./docker/
-# bash './push_bob_info'
-# sleep 2
-
-#cd ..
+cd ..
 echo "Starting Agents and Controllers..."
 cd ./docker/
-./run_demo webstart -l
+nohup ./run_demo webstart -l &>/dev/null &
 
 echo "Finished"
