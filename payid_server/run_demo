@@ -7,7 +7,6 @@ cd ..
  
 echo "Starting PAY ID SERVER...."
 cd ./PayIDServer/
-npm install
 nohup npm run devEnvUp:default &>/dev/null &
 
 cd ..
