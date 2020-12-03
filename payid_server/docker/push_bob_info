@@ -3,7 +3,7 @@
 PAYID_SERVER=$(ip addr show eno1 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
 
 #Create Bob payment information 
-curl --location --request POST '$PAYID_SERVER:8081/users' \
+curl --location --request POST "http://$PAYID_SERVER:8081/users" \
 --header 'Content-Type: application/json' \
 --header 'PayID-API-Version: 2020-06-18' \
 --data-raw '   {
@@ -32,7 +32,7 @@ curl --location --request POST '$PAYID_SERVER:8081/users' \
     }'
 
 #Authorize Alice to view Bob information
-curl --location --request POST '$PAYID_SERVER:8080/payId/authorize' \
+curl --location --request POST "http://$PAYID_SERVER:8080/payId/authorize" \
 --header 'Content-Type: application/json' \
 --header 'PayID-API-Version: 2020-06-18' \
 --data-raw '{
