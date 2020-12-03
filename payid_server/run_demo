@@ -8,16 +8,18 @@ cd ..
 echo "Starting PAY ID SERVER...."
 cd ./PayIDServer/
 nohup npm run devEnvUp:default &>/dev/null &
+sleep 15
 
 cd ..
 echo "Pushing Bob's info......."
 cd ./docker/
 bash './push_bob_info'
-sleep 2
+sleep 15
 
 cd ..
 echo "Starting Agents and Controllers..."
 cd ./docker/
 nohup ./run_demo webstart -l &>/dev/null &
+sleep 15
 
 echo "Finished"
