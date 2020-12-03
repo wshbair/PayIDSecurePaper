@@ -35,6 +35,6 @@ curl --location --request POST 'http://127.0.0.1:8080/payId/authorize' \
 --header 'PayID-API-Version: 2020-06-18' \
 --data-raw '{
    "payId": "bob$'$PAYID_SERVER'",
-   "authorized_pay_id":"'$PAYID_SERVER'"
+   "authorized_pay_id":"'alice$PAYID_SERVER'"
 }'
  
